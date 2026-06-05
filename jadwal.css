@@ -1,0 +1,48 @@
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.top-date-bar {
+  background-color: #212529;
+  color: #adb5bd;
+  font-size: 0.85rem;
+  padding: 5px 15px;
+}
+
+.header-bar {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+}
+
+.sidebar {
+  background-color: #ffffff;
+  min-height: calc(100vh - 110px);
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.sidebar-menu .nav-link {
+  color: #495057;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.sidebar-menu .nav-link:hover, 
+.sidebar-menu .nav-link.active {
+  background-color: #e9ecef;
+  color: #0d6efd;
+}
+
+.btn-absen {
+  background-color: #198754;
+  color: white;
+  font-size: 0.85rem;
+  padding: 4px 12px;
+}
+.btn-absen:hover {
+  background-color: #146c43;
+  color: white;
+}
