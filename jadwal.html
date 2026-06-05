@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jadwal Kuliah - Portal Administratif Mahasiswa</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+
+</head>
+
+<body>
+
+  <div class="top-date-bar text-end">
+    <i class="far fa-calendar-alt me-1"></i> <span id="currentDate"></span>
+  </div>
+
+  <div class="header-bar p-3 shadow-sm">
+    <div class="container-fluid d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+      <div class="header-info lh-sm">
+        <div class="fs-6"><strong>:: NIM - NAMA</strong> (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)</div>
+        <div class="small opacity-75"><strong>:: SEMESTER 3</strong> TA 2025 - 2026</div>
+        <div class="badge bg-warning text-dark mt-1">Beban SKS Maksimal: 24 SKS</div>
+      </div>
+      <div>
+        <a href="#" class="btn btn-danger btn-sm px-3" onclick="logout(); return false;">
+          <i class="fas fa-sign-out-alt me-1"></i> Logout
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      
+    <aside class="col-md-3 col-lg-2 p-3 sidebar collapse d-md-block" id="sidebarMenu">
+      <div class="mb-4">
+        <small class="text-muted text-uppercase fw-bold px-2">Main</small>
+        <ul class="nav flex-column sidebar-menu mt-2">
+          <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home me-2"></i> HOME</a></li>
+          <li class="nav-item"><a href="panduan.html" class="nav-link"><i class="fas fa-book me-2"></i> PANDUAN</a></li>
+        </ul>
+      </div>
+
+
+      <div class="mb-4">
+        <small class="text-muted text-uppercase fw-bold px-2">Akademik</small>
+        <ul class="nav flex-column sidebar-menu mt-2">
+          <li class="nav-item"><a href="krs.html" class="nav-link"><i class="fas fa-clipboard-list me-2"></i>
+              REGISTRASI</a></li>
+          <li class="nav-item"><a href="jadwal.html" class="nav-link active"><i class="fas fa-calendar-alt me-2"></i>
+              JADWAL KULIAH</a></li>
+          <li class="nav-item"><a href="khs.html" class="nav-link"><i class="fas fa-graduation-cap me-2"></i> HASIL
+              STUDI</a></li>
+          <li class="nav-item"><a href="transkrip.html" class="nav-link"><i class="fas fa-file-alt me-2"></i> TRANSKRIP
+              NILAI</a></li>
+        </ul>
+      </div>
+
+
+      <div class="mb-4">
+        <small class="text-muted text-uppercase fw-bold px-2">Pengaturan</small>
+        <ul class="nav flex-column sidebar-menu mt-2">
+          <li class="nav-item"><a href="profil.html" class="nav-link"><i class="fas fa-user me-2"></i> DATA
+              PRIBADI</a></li>
+          <li class="nav-item"><a href="password.html" class="nav-link"><i class="fas fa-key me-2"></i> GANTI PASSWORD</a></li>
+        </ul>
+      </div>
+
+        <div class="user-online-badge text-center small text-muted">
+          <i class="fas fa-users me-1 ms-3"></i> <strong>127</strong> user online
+        </div>
+
+    </aside>
+
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+
+      <div
+        class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-4 border-bottom pb-3">
+        <div class="d-flex align-items-center gap-2">
+          <i class="fas fa-calendar-alt text-danger fs-3"></i>
+          <h1 class="h3 mb-0 fw-bold text-dark">Jadwal Kuliah Anda</h1>
+        </div>
+        <div class="d-flex gap-2">
+          <span class="badge bg-white text-dark border py-2 px-3 rounded-pill shadow-sm"><i
+              class="fas fa-book-open me-1 text-primary"></i> 5 Mata Kuliah</span>
+          <span class="badge bg-white text-dark border py-2 px-3 rounded-pill shadow-sm"><i
+              class="fas fa-graduation-cap me-1 text-success"></i> 14 Total SKS</span>
+        </div>
+      </div>
+
+      <ul class="nav nav-pills gap-2 mb-4 p-2 bg-white rounded shadow-sm scrollable-nav" id="scheduleTab"
+        role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active rounded-pill px-4" id="all-tab" data-bs-toggle="tab"
+            data-bs-target="#all-panels" type="button" role="tab">Semua Hari</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill px-4" id="senin-tab" data-bs-toggle="tab" data-bs-target="#senin-panel"
+            type="button" role="tab">Senin</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill px-4" id="selasa-tab" data-bs-toggle="tab" data-bs-target="#selasa-panel"
+            type="button" role="tab">Selasa</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill px-4" id="rabu-tab" data-bs-toggle="tab" data-bs-target="#rabu-panel"
+            type="button" role="tab">Rabu</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill px-4" id="kamis-tab" data-bs-toggle="tab" data-bs-target="#kamis-panel"
+            type="button" role="tab">Kamis</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill px-4" id="jumat-tab" data-bs-toggle="tab" data-bs-target="#jumat-panel"
+            type="button" role="tab">Jumat</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-pill px-4" id="sabtu-tab" data-bs-toggle="tab" data-bs-target="#sabtu-panel"
+            type="button" role="tab">Sabtu</button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="scheduleTabContent">
+
+        <div class="tab-pane fade show active" id="all-panels" role="tabpanel">
+
+          <div class="card shadow-sm border-0 rounded-3 overflow-hidden d-none d-md-block">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="table-dark">
+                  <tr>
+                    <th class="ps-4 py-3 text-uppercase fs-7 tracking-wider">Hari</th>
+                    <th class="py-3 text-uppercase fs-7 tracking-wider">Waktu</th>
+                    <th class="py-3 text-uppercase fs-7 tracking-wider">Mata Kuliah</th>
+                    <th class="py-3 text-center text-uppercase fs-7 tracking-wider">SKS</th>
+                    <th class="py-3 text-uppercase fs-7 tracking-wider">Ruangan</th>
+                    <th class="py-3 pe-4 text-uppercase fs-7 tracking-wider">Dosen Pengampu</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="ps-4"><span class="badge bg-primary px-3 py-2 fw-bold rounded">SENIN</span></td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <i class="far fa-clock text-warning"></i>
+                        <div>
+                          <span class="fw-bold d-block text-dark">08:00 - 10:30</span>
+                          <small class="text-muted text-xs">Sesi Pagi</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="fw-bold text-dark d-block">Pemrograman Web</span>
+                      <small class="text-muted">IF-301 &bull; Kelas A</small>
+                    </td>
+                    <td class="text-center"><span class="badge bg-light text-dark border px-2.5 py-1.5 font-monospace">3
+                        SKS</span></td>
+                    <td><span class="badge bg-danger-subtle text-danger px-2.5 py-1.5"><i
+                          class="fas fa-laptop-code me-1"></i> Lab Komputer 2</span></td>
+                    <td class="pe-4 text-secondary fw-medium"><i class="far fa-user-circle me-1"></i> Dr. Jhon Doe
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="ps-4"><span class="badge bg-success px-3 py-2 fw-bold rounded">SELASA</span></td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <i class="far fa-clock text-info"></i>
+                        <div>
+                          <span class="fw-bold d-block text-dark">13:00 - 14:40</span>
+                          <small class="text-muted text-xs">Sesi Siang</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="fw-bold text-dark d-block">Basis Data</span>
+                      <small class="text-muted">IF-302 &bull; Kelas B</small>
+                    </td>
+                    <td class="text-center"><span class="badge bg-light text-dark border px-2.5 py-1.5 font-monospace">2
+                        SKS</span></td>
+                    <td><span class="badge bg-info-subtle text-info px-2.5 py-1.5"><i class="fas fa-door-open me-1"></i>
+                        Ruang 302</span></td>
+                    <td class="pe-4 text-secondary fw-medium"><i class="far fa-user-circle me-1"></i> Jane Smith,
+                      M.T.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="d-block d-md-none">
+            <div class="card border-0 shadow-sm rounded-3 mb-3 border-start border-primary border-4">
+              <div class="card-body p-3">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <span class="badge bg-primary fw-bold">SENIN</span>
+                  <span class="badge bg-light text-dark border font-monospace">3 SKS</span>
+                </div>
+                <h5 class="fw-bold text-dark mb-1 fs-6">Pemrograman Web</h5>
+                <p class="text-muted small mb-3"><i class="far fa-user-circle me-1"></i> Dr. Jhon Doe</p>
+                <div
+                  class="d-flex justify-content-between align-items-center bg-light p-2 rounded-2 small text-secondary">
+                  <div><i class="far fa-clock me-1 text-warning"></i> 08:00 - 10:30</div>
+                  <div><i class="fas fa-laptop-code me-1 text-danger"></i> Lab 2</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-3 mb-3 border-start border-success border-4">
+              <div class="card-body p-3">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <span class="badge bg-success fw-bold">SELASA</span>
+                  <span class="badge bg-light text-dark border font-monospace">2 SKS</span>
+                </div>
+                <h5 class="fw-bold text-dark mb-1 fs-6">Basis Data</h5>
+                <p class="text-muted small mb-3"><i class="far fa-user-circle me-1"></i> Jane Smith, M.T.</p>
+                <div
+                  class="d-flex justify-content-between align-items-center bg-light p-2 rounded-2 small text-secondary">
+                  <div><i class="far fa-clock me-1 text-info"></i> 13:00 - 14:40</div>
+                  <div><i class="fas fa-door-open me-1 text-info"></i> R. 302</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="tab-pane fade" id="senin-panel" role="tabpanel"></div>
+        <div class="tab-pane fade" id="selasa-panel" role="tabpanel"></div>
+        <div class="tab-pane fade" id="rabu-panel" role="tabpanel"></div>
+        <div class="tab-pane fade" id="kamis-panel" role="tabpanel"></div>
+        <div class="tab-pane fade" id="jumat-panel" role="tabpanel"></div>
+        <div class="tab-pane fade" id="sabtu-panel" role="tabpanel"></div>
+
+      </div>
+
+      <footer class="text-center text-muted small mt-5 border-top pt-3">
+        <p>
+          &copy; 2026 Portal Administratif Mahasiswa.
+          Bagian Administrasi Akademik tidak bertanggung jawab apabila data yang Anda berikan salah.
+        </p>
+      </footer>
+
+    </main>
+
+  </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/jadwal.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panduan - Portal Administratif Mahasiswa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+
+<div class="top-date-bar text-end">
+  <i class="far fa-calendar-alt me-1"></i> <span id="currentDate"></span>
+</div>
+
+<div class="header-bar p-3 shadow-sm">
+  <div class="container-fluid d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+    <div class="header-info lh-sm">
+      <div class="fs-6"><strong>:: NIM - NAMA</strong> (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)</div>
+      <div class="small opacity-75"><strong>:: SEMESTER 3</strong> TA 2025 - 2026</div>
+      <div class="badge bg-warning text-dark mt-1">Beban SKS Maksimal: 24 SKS</div>
+    </div>
+    <div>
+      <a href="#" class="btn btn-danger btn-sm px-3" onclick="logout(); return false;">
+        <i class="fas fa-sign-out-alt me-1"></i> Logout
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <aside class="col-md-3 col-lg-2 p-3 sidebar collapse d-md-block" id="sidebarMenu">
+      <div class="mb-4">
+        <small class="text-muted text-uppercase fw-bold px-2">Main</small>
+        <ul class="nav flex-column sidebar-menu mt-2">
+          <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home me-2"></i> HOME</a></li>
+          <li class="nav-item"><a href="panduan.html" class="nav-link active"><i class="fas fa-book me-2"></i> PANDUAN</a></li>
+        </ul>
+      </div>
+      <div class="mb-4">
+        <small class="text-muted text-uppercase fw-bold px-2">Akademik</small>
+        <ul class="nav flex-column sidebar-menu mt-2">
+          <li class="nav-item"><a href="krs.html" class="nav-link"><i class="fas fa-clipboard-list me-2"></i> REGISTRASI</a></li>
+          <li class="nav-item"><a href="jadwal.html" class="nav-link"><i class="fas fa-calendar-alt me-2"></i> JADWAL KULIAH</a></li>
+          <li class="nav-item"><a href="khs.html" class="nav-link"><i class="fas fa-graduation-cap"></i> HASIL STUDI</a></li>
+          <li class="nav-item"><a href="transkrip.html" class="nav-link"><i class="fas fa-file-alt me-2"></i> TRANSKRIP NILAI</a></li>
+        </ul>
+      </div>
+      <div class="mb-4">
+        <small class="text-muted text-uppercase fw-bold px-2">Pengaturan</small>
+        <ul class="nav flex-column sidebar-menu mt-2">
+          <li class="nav-item"><a href="profil.html" class="nav-link"><i class="fas fa-user me-2"></i> DATA PRIBADI</a></li>
+          <li class="nav-item"><a href="password.html" class="nav-link"><i class="fas fa-key me-2"></i> GANTI PASSWORD</a></li>
+        </ul>
+      </div>
+      <div class="user-online-badge text-center small text-muted">
+        <i class="fas fa-users me-1 ms-3"></i> <strong>127</strong> user online
+      </div>
+    </aside>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+      <div class="d-flex align-items-center gap-2 mb-4 border-bottom pb-2">
+        <i class="fas fa-book text-success fs-4"></i>
+        <h1 class="h3 mb-0 fw-bold">PANDUAN PORTAL MAHASISWA</h1>
+      </div>
+
+      <div class="card border-0 shadow-lg guide-card">
+        <div class="card-body p-4 p-md-5 guide-content">
+          <p class="lead fw-semibold text-teal">
+            <i class="fas fa-info-circle me-2"></i>Pedoman Penggunaan Sistem Informasi Akademik (SIAKAD)
+          </p>
+          <p>
+            Selamat datang di Portal Administratif Mahasiswa. SIAKAD adalah Sistem Informasi Akademik yang dapat diakses 
+            dimanapun melalui perangkat yang terhubung dengan internet dengan alamat https://siakad.uksw.edu. 
+            Login yang digunakan adalah Nomor Induk Mahasiswa serta Password diberikan oleh Bagian Admisi Registrasi (BARA) 
+            dan dapat diganti oleh mahasiswa bersangkutan. Mahasiswa diharapkan dapat mempertanggung jawabkan 
+            Login dan Password yang ada. BARA tidak bertanggung jawab atas kekeliruan, kehilangan atau akibat lain 
+            yang ditimbulkan apabila mahasiwa tersebut memberikan Login dan Password kepada pihak lain.
+          </p>
+
+          <h5>1. Registrasi KRS (Kartu Rencana Studi)</h5>
+          <p>
+           Mahasiswa dapat mengakses Registrasi Matakuliah dengan syarat telah melunasi uang kuliah.
+           Mahasiswa wajib melakukan perwalian sesuai dengan wali studi masing-masing sebelum melakukan registrasi matakuliah 
+           dengan ditandai proses yang dilakukan oleh dosen wali melalui site dosen.
+           Pengambilan matakuliah dibatasi dengan beban maksimum sks, dengan perhitungan secara sistem dengan memperhitungkan 
+           nilai IP Hasil Studi Semester dan IP Kumulatif.
+           Mahasiswa kemudian meng-klik Matakuliah yang akan diambil pada semester tersebut. 
+           Matakuliah ini ditampilkan berdasarkan kurikulum yang diberlakukan oleh Fakultas masing-masing.
+           Daftar Kelas yang tampil pada layar monitor adalah daftar kelas yang dibuka oleh Fakultas pada semester bersangkutan. 
+           Daftar Kelas yang tersedia tersebut merupakan wewenang Fakultas.
+           Klik pada Tambah untuk mendaftarkan diri sebagai peserta pada Kelas tersebut. 
+           Mahasiswa akan didaftarkan pada kelas yang di-klik. Ulangi prosedur ini untuk kelas-kelas yang lain.
+           Mahasiswa yang tidak diperbolehkan untuk mendaftar pada kelas-kelas tertentu dapat disebabkan oleh Kapasitas Kelas Penuh, 
+           Beban Maksimum Terlampaui, Prasyarat Matakuliah Tidak Terpenuhi, Jadwal Kelas tersebut bertabrakan dengan Kelas yang telah 
+           diambil serta Kelas yang sama telah terdaftar pada Kartu Studi Mahasiswa.
+           Mahasiswa yang telah melakukan Registrasi Matakuliah dapat melakukan download Kartu Studi Tetap secara mandiri melalui sistem ini.
+          </p>
+
+          <h5>2. Jadwal Kuliah</h5>
+          <p>
+            Mahasiswa dapat melihat jadwal kuliah sesuai tahun semester yang aktif pada sistem.
+Proses presensi perkuliahan dapat dilakukan melalui sistem ini, melalui menu Jadwal Kuliah dan klik Presensi
+          </p>
+
+          <h5>3. Hasil Studi (KHS)</h5>
+          <p>
+            Hasil Studi adalah hasil penilaian oleh dosen pengajar selama proses belajar semester.
+          </p>
+
+          <h5>4. Transkrip Nilai</h5>
+          <p>
+            Transkrip Nilai adalah akumulasi hasil penilaian selama mahasiswa melaksanakan proses belajar.
+          </p>
+
+          <h5>5. Data Pribadi</h5>
+          <p>
+            Pastikan data pribadi seperti NIK, nomor KK, alamat, dan nomor telepon sesuai. 
+            Data ini sangat penting untuk pelaporan ke PDDikti dan validasi ijazah.
+          </p>
+
+          <h5>6. Ganti Password</h5>
+          <p>
+            Demi keamanan akun, disarankan untuk mengganti password secara berkala melalui menu <strong>GANTI PASSWORD</strong>. 
+            Gunakan kombinasi huruf besar, huruf kecil, angka, dan simbol. Jangan berikan password 
+            kepada siapa pun.
+          </p>
+
+          
+          </div>
+        </div>
+      </div>
+
+      <footer class="text-center text-muted small mt-5 border-top pt-3">
+        <p>&copy; 2026 Portal Administratif Mahasiswa. <br class="d-md-none"> Bagian Administrasi Akademik tidak bertanggung jawab apabila data yang Anda berikan salah.</p>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/app.js"></script>
+<script>
+  const user = checkSession();
+  
+  if (user) {
+    const now = new Date();
+    const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+    document.getElementById('currentDate').textContent = 
+      days[now.getDay()] + ', ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+    
+    const headerInfo = document.querySelector('.header-info');
+    headerInfo.innerHTML = `
+      <div class="fs-6"><strong>:: ${user.nim} - ${user.name.toUpperCase()}</strong> (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)</div>
+      <div class="small opacity-75"><strong>:: SEMESTER 3</strong> TA 2025 - 2026</div>
+      <div class="badge bg-warning text-dark mt-1">Beban SKS Maksimal: 24 SKS</div>
+    `;
+  }
+</script>
+</body>
+</html>

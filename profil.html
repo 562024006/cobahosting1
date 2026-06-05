@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Pribadi - Portal Administratif Mahasiswa</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <div class="top-date-bar text-end">
+    <i class="far fa-calendar-alt me-1"></i>
+    <span id="currentDate"></span>
+  </div>
+
+  <div class="header-bar p-3 shadow-sm">
+    <div class="container-fluid d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+      <div class="header-info lh-sm">
+        <div class="fs-6">
+          <strong>:: NIM - NAMA</strong>
+          (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)
+        </div>
+        <div class="small opacity-75">
+          <strong>:: SEMESTER 3</strong> TA 2025 - 2026
+        </div>
+        <div class="badge bg-warning text-dark mt-1">
+          Beban SKS Maksimal: 24 SKS
+        </div>
+      </div>
+
+      <div>
+        <a href="#" class="btn btn-danger btn-sm px-3" onclick="logout(); return false;">
+          <i class="fas fa-sign-out-alt me-1"></i>
+          Logout
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <aside class="col-md-3 col-lg-2 p-3 sidebar collapse d-md-block" id="sidebarMenu">
+        <div class="mb-4">
+          <small class="text-muted text-uppercase fw-bold px-2">Main</small>
+          <ul class="nav flex-column sidebar-menu mt-2">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">
+                <i class="fas fa-home me-2"></i> HOME</a>
+            </li>
+            <li class="nav-item"><a href="panduan.html" class="nav-link"><i class="fas fa-book me-2"></i> PANDUAN</a></li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <small class="text-muted text-uppercase fw-bold px-2">Akademik</small>
+          <ul class="nav flex-column sidebar-menu mt-2">
+            <li class="nav-item"><a href="krs.html" class="nav-link"><i class="fas fa-clipboard-list me-2"></i>
+                REGISTRASI</a></li>
+            <li class="nav-item"><a href="jadwal.html" class="nav-link"><i class="fas fa-calendar-alt me-2"></i> JADWAL
+                KULIAH</a></li>
+            <li class="nav-item"><a href="khs.html" class="nav-link"><i class="fas fa-graduation-cap me-2"></i> HASIL
+                STUDI</a></li>
+            <li class="nav-item"><a href="transkrip.html" class="nav-link"><i class="fas fa-file-alt me-2"></i> TRANSKRIP
+                NILAI</a></li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <small class="text-muted text-uppercase fw-bold px-2">Pengaturan</small>
+          <ul class="nav flex-column sidebar-menu mt-2">
+            <li class="nav-item">
+              <a href="profil.html" class="nav-link active">
+                <i class="fas fa-user me-2"></i> DATA
+                PRIBADI</a>
+            </li>
+            <li class="nav-item"><a href="password.html" class="nav-link"><i class="fas fa-key me-2"></i> GANTI PASSWORD</a></li>
+          </ul>
+        </div>
+
+        <div class="user-online-badge text-center small text-muted">
+          <i class="fas fa-users me-1 ms-3"></i> <strong>127</strong> user online
+        </div>
+      </aside>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+
+        <div class="d-flex align-items-center gap-2 mb-4 border-bottom pb-3">
+          <i class="fas fa-user text-primary fs-3"></i>
+          <h1 class="h3 mb-0 fw-bold text-dark">
+            Data Pribadi Mahasiswa
+          </h1>
+        </div>
+
+        <div class="alert alert-warning border-0 shadow-sm d-flex gap-3 align-items-start mb-4">
+          <i class="fas fa-info-circle text-warning fs-4 mt-1"></i>
+
+          <div>
+            <h6 class="alert-heading fw-bold">
+              Informasi Penting!
+            </h6>
+
+            <p class="mb-0 small text-dark opacity-75">
+              UNTUK KEPERLUAN ADMINISTRASI ANDA, SILAHKAN UPDATE ISIAN DI BAWAH INI.
+              DATA INI DIPERGUNAKAN UNTUK SYARAT PELAPORAN KE DIREKTORAT JENDERAL
+              PENDIDIKAN TINGGI (DIKTI).
+            </p>
+          </div>
+        </div>
+
+        <div class="card shadow-sm border-0">
+          <div class="card-body p-4">
+
+            <form id="profileForm">
+
+              <div class="row mb-3 align-items-center">
+                <label for="nim" class="col-sm-3 col-form-label">NIM</label>
+
+                <div class="col-sm-9">
+                  <input type="text" id="nim" name="nim" class="form-control-plaintext border-bottom" readonly>
+                </div>
+              </div>
+
+              <div class="row mb-3 align-items-center">
+                <label for="name" class="col-sm-3 col-form-label">Nama Lengkap</label>
+                <div class="col-sm-9">
+                  <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="row mb-3 align-items-center">
+                <label for="address" class="col-sm-3 col-form-label">Alamat</label>
+                <div class="col-sm-9">
+                  <input type="text" id="address" name="address" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="row mb-3 align-items-center">
+                <label for="phone" class="col-sm-3 col-form-label">No. Telepon / Handphone</label>
+                <div class="col-sm-9">
+                  <input type="tel" id="phone" name="phone" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="row mb-3 align-items-center">
+                <label for="email" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                  <input type="email" id="email" name="email" class="form-control"
+                    placeholder="email@student.univ.ac.id">
+                </div>
+              </div>
+
+              <div class="row mb-3 align-items-center">
+                <label for="bank" class="col-sm-3 col-form-label">Nama Bank</label>
+                <div class="col-sm-9">
+                  <select id="bank" name="bank" class="form-select" required>
+                    <option value="">-- Pilih Bank --</option>
+                    <option value="BCA">BCA</option>
+                    <option value="BRI">BRI</option>
+                    <option value="BNI">BNI</option>
+                    <option value="Mandiri">Mandiri</option>
+                    <option value="BTN">BTN</option>
+                    <option value="CIMB Niaga">CIMB Niaga</option>
+                    <option value="Permata">Permata</option>
+                    <option value="Danamon">Danamon</option>
+                    <option value="BSI">BSI</option>
+                    <option value="OCBC">OCBC</option>
+                    <option value="Lainnya">Lainnya</option>
+                  </select>
+
+                  <input type="text" id="bankLainnya" class="form-control mt-2" placeholder="Masukkan nama bank"
+                    style="display:none;">
+                </div>
+              </div>
+                  <div class="row mb-3 align-items-center">
+                    <label for="accountNumber" class="col-sm-3 col-form-label">Nomor Rekening</label>
+                    <div class="col-sm-9">
+                      <input type="text" id="accountNumber" name="accountNumber" class="form-control" required>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3 align-items-center">
+                    <label for="accountName" class="col-sm-3 col-form-label">Atas Nama Rekening</label>
+                    <div class="col-sm-9">
+                      <input type="text" id="accountName" name="accountName" class="form-control" required>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3 align-items-center">
+                    <label for="accountRelation" class="col-sm-3 col-form-label">Hubungan Dengan Pemilik
+                      Rekening</label>
+                    <div class="col-sm-9">
+                      <input type="text" id="accountRelation" name="accountRelation" class="form-control"
+                        value="Saya sendiri">
+                    </div>
+                  </div>
+
+                  <div class="row mt-4">
+                    <div class="col-sm-9 offset-sm-3">
+                      <button type="submit" class="btn btn-success px-4">
+                        <i class="fas fa-save me-2"></i>
+                        Simpan Data
+                      </button>
+                    </div>
+                  </div>
+            </form>
+          </div>
+        </div>
+        <div class="alert alert-info border-0 shadow-sm mt-4">
+          <i class="fas fa-info-circle me-2"></i>
+          Demi kelancaran pengiriman email dari Bagian Administrasi Akademik,
+          silakan menggunakan email student.univ.ac.id yang telah diberikan.
+        </div>
+
+        <footer class="text-center text-muted small mt-5 border-top pt-3">
+          <p>
+            &copy; 2026 Portal Administratif Mahasiswa.
+            Bagian Administrasi Akademik tidak bertanggung jawab apabila data yang Anda berikan salah.
+          </p>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+    // Check session
+    const user = checkSession();
+
+    if (user) {
+      // Set current date
+      const now = new Date();
+      const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+      const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+      document.getElementById('currentDate').textContent =
+        days[now.getDay()] + ', ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+
+      // Update header with user info
+      const headerInfo = document.querySelector('.header-info');
+      headerInfo.innerHTML = `
+        <div><strong>:: ${user.nim} - ${user.name.toUpperCase()}</strong> (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)</div>
+        <div><strong>:: SEMESTER 3</strong> TA 2025 - 2026</div>
+        <div><strong>:: BEBAN SKS MAKSIMAL : 24 sks</strong></div>
+      `;
+
+      // Daftar bank standar
+      const daftarBank = ['BCA', 'BRI', 'BNI', 'Mandiri', 'BTN', 'CIMB Niaga', 'Permata', 'Danamon', 'BSI', 'OCBC'];
+      const bankSelect = document.getElementById('bank');
+      const bankLainnyaInput = document.getElementById('bankLainnya');
+
+      // Load profile data
+      const profile = getProfile();
+      document.getElementById('nim').value = profile.nim || '';
+      document.getElementById('name').value = profile.name || '';
+      document.getElementById('address').value = profile.address || '';
+      document.getElementById('phone').value = profile.phone || '';
+      document.getElementById('email').value = profile.email || '';
+
+      // Mengatur tampilan bank saat load data
+      if (profile.bank) {
+        if (daftarBank.includes(profile.bank)) {
+          bankSelect.value = profile.bank;
+          bankLainnyaInput.style.display = 'none';
+          bankLainnyaInput.required = false;
+        } else {
+          bankSelect.value = 'Lainnya';
+          bankLainnyaInput.value = profile.bank;
+          bankLainnyaInput.style.display = 'block';
+          bankLainnyaInput.required = true;
+        }
+      }
+
+      bankSelect.addEventListener('change', function () {
+        if (this.value === 'Lainnya') {
+          bankLainnyaInput.style.display = 'block';
+          bankLainnyaInput.required = true; // Wajib diisi jika pilih 'Lainnya'
+          bankLainnyaInput.focus();
+        } else {
+          bankLainnyaInput.style.display = 'none';
+          bankLainnyaInput.required = false; // Tidak wajib diisi
+          bankLainnyaInput.value = ''; // Reset isi input
+        }
+      });
+
+      document.getElementById('accountNumber').value = profile.accountNumber || '';
+      document.getElementById('accountName').value = profile.accountName || '';
+      document.getElementById('accountRelation').value = profile.accountRelation || 'Saya sendiri';
+      
+        // Handle form submission
+    document.getElementById('profileForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Jika pilih 'Lainnya', ambil nilai dari input teks bankLainnya
+      let namaBank = document.getElementById('bank').value;
+      if (namaBank === 'Lainnya') {
+        namaBank = document.getElementById('bankLainnya').value.trim();
+      }
+
+      const profileData = {
+        nim: document.getElementById('nim').value,
+        name: document.getElementById('name').value,
+        address: document.getElementById('address').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        bank: namaBank, // Menyimpan nama bank yang sesuai
+        accountNumber: document.getElementById('accountNumber').value,
+        accountName: document.getElementById('accountName').value,
+        accountRelation: document.getElementById('accountRelation').value
+      };
+
+      const result = updateProfile(profileData);
+      if (result.success) {
+        alert(result.message);
+        // Update session name if changed
+        const session = getCurrentUser();
+        if (session && session.name !== profileData.name) {
+          session.name = profileData.name;
+          session.loginAt = new Date().toISOString();
+          localStorage.setItem('active_session', JSON.stringify(session));
+        }
+        // Update header
+        const headerInfo = document.querySelector('.header-info');
+        headerInfo.innerHTML = `
+          <div><strong>:: ${profileData.nim} - ${profileData.name.toUpperCase()}</strong> (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)</div>
+          <div><strong>:: SEMESTER 3</strong> TA 2025 - 2026</div>
+          <div><strong>:: BEBAN SKS MAKSIMAL : 24 sks</strong></div>
+        `;
+      } else {
+        alert('Gagal memperbarui profil');
+      }
+    });
+  }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
